@@ -1,0 +1,126 @@
+generated: '2026-10-23'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 8
+  own: 6
+  other_domain: 1
+  platform: 1
+  roles:
+  - api
+  - docs
+  - other
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api.omophub.com
+  found_by:
+  - apis[]
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: omophub.com
+  role: api
+  relation: own
+- host: dashboard.omophub.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Support
+  serves: []
+  registrable_domain: omophub.com
+  role: support
+  relation: own
+- host: docs.omophub.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: omophub.com
+  role: docs
+  relation: own
+- host: fhir.omophub.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: omophub.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: mintlify.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: mintlify.com
+  role: other
+  relation: other-domain
+- host: omophub.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - TermsOfService
+  - PrivacyPolicy
+  - Blog
+  - Pricing
+  - ChangeLog
+  - Website
+  serves:
+  - docs
+  - hosting
+  vendor: vercel
+  registrable_domain: omophub.com
+  role: website
+  relation: own
+- host: status.omophub.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: omophub.com
+  role: status
+  relation: own

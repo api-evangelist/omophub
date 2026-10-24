@@ -1,0 +1,155 @@
+{
+  "@context": {
+    "@vocab": "https://omophub.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "omophub": "https://omophub.com/schema#",
+    "PostFhirR4Request": "omophub:PostFhirR4Request",
+    "resourceType": {
+      "@id": "omophub:resourceType",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "omophub:type",
+      "@type": "xsd:string"
+    },
+    "entry": {
+      "@id": "omophub:entry",
+      "@container": "@list"
+    },
+    "PostFhirR4Response": "omophub:PostFhirR4Response",
+    "resource": {
+      "@id": "omophub:resource"
+    },
+    "response": {
+      "@id": "omophub:response"
+    },
+    "GetFhirR4CodesystemResponse": "omophub:GetFhirR4CodesystemResponse",
+    "success": {
+      "@id": "omophub:success",
+      "@type": "xsd:boolean"
+    },
+    "data": {
+      "@id": "omophub:data"
+    },
+    "meta": {
+      "@id": "omophub:meta"
+    },
+    "PostV1ConceptsMapRequest": "omophub:PostV1ConceptsMapRequest",
+    "source_codes": {
+      "@id": "omophub:source_codes",
+      "@container": "@list"
+    },
+    "target_vocabulary": {
+      "@id": "omophub:target_vocabulary",
+      "@type": "xsd:string"
+    },
+    "mapping_type": {
+      "@id": "omophub:mapping_type",
+      "@type": "xsd:string"
+    },
+    "PostV1ConceptsMapResponse": "omophub:PostV1ConceptsMapResponse",
+    "Authorization": {
+      "@id": "omophub:Authorization",
+      "@type": "xsd:string"
+    },
+    "GetV1ConceptsConceptidResponse": "omophub:GetV1ConceptsConceptidResponse",
+    "GetV1ConceptsConceptidMappingsResponse": "omophub:GetV1ConceptsConceptidMappingsResponse",
+    "GetV1DomainsResponse": "omophub:GetV1DomainsResponse",
+    "PostV1FhirResolveRequest": "omophub:PostV1FhirResolveRequest",
+    "system": {
+      "@id": "omophub:system",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "omophub:code",
+      "@type": "xsd:string"
+    },
+    "resource_type": {
+      "@id": "omophub:resource_type",
+      "@type": "xsd:string"
+    },
+    "PostV1FhirResolveResponse": "omophub:PostV1FhirResolveResponse",
+    "PostV1FhirResolveBatchRequest": "omophub:PostV1FhirResolveBatchRequest",
+    "codings": {
+      "@id": "omophub:codings",
+      "@container": "@list"
+    },
+    "PostV1FhirResolveBatchResponse": "omophub:PostV1FhirResolveBatchResponse",
+    "input": {
+      "@id": "omophub:input"
+    },
+    "resolution": {
+      "@id": "omophub:resolution"
+    },
+    "PostV1SearchAdvancedRequest": "omophub:PostV1SearchAdvancedRequest",
+    "query": {
+      "@id": "omophub:query",
+      "@type": "xsd:string"
+    },
+    "page_size": {
+      "@id": "omophub:page_size",
+      "@type": "xsd:integer"
+    },
+    "PostV1SearchAdvancedResponse": "omophub:PostV1SearchAdvancedResponse",
+    "pageSize": {
+      "@id": "omophub:pageSize",
+      "@type": "xsd:integer"
+    },
+    "PostV1SearchBulkRequest": "omophub:PostV1SearchBulkRequest",
+    "defaults": {
+      "@id": "omophub:defaults"
+    },
+    "searches": {
+      "@id": "omophub:searches",
+      "@container": "@list"
+    },
+    "PostV1SearchBulkResponse": "omophub:PostV1SearchBulkResponse",
+    "GetV1SearchConceptsResponse": "omophub:GetV1SearchConceptsResponse",
+    "GetV1SearchFacetsResponse": "omophub:GetV1SearchFacetsResponse",
+    "vocabulary_ids": {
+      "@id": "omophub:vocabulary_ids",
+      "@type": "xsd:string"
+    },
+    "bucket_limit": {
+      "@id": "omophub:bucket_limit",
+      "@type": "xsd:integer"
+    },
+    "GetV1SearchSemanticResponse": "omophub:GetV1SearchSemanticResponse",
+    "PostV1SearchSimilarRequest": "omophub:PostV1SearchSimilarRequest",
+    "domain_ids": {
+      "@id": "omophub:domain_ids",
+      "@container": "@list"
+    },
+    "algorithm": {
+      "@id": "omophub:algorithm",
+      "@type": "xsd:string"
+    },
+    "similarity_threshold": {
+      "@id": "omophub:similarity_threshold",
+      "@type": "xsd:decimal"
+    },
+    "include_scores": {
+      "@id": "omophub:include_scores",
+      "@type": "xsd:boolean"
+    },
+    "include_explanations": {
+      "@id": "omophub:include_explanations",
+      "@type": "xsd:boolean"
+    },
+    "standard_concept": {
+      "@id": "omophub:standard_concept",
+      "@type": "xsd:string"
+    },
+    "PostV1SearchSimilarResponse": "omophub:PostV1SearchSimilarResponse",
+    "GetV1SearchSuggestResponse": "omophub:GetV1SearchSuggestResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "OMOPHub API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects OMOPHub's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-23) from openapi/_ae-authored/omophub-openapi-generated.yml.",
+  "dcterms:created": "2026-10-23",
+  "dcterms:source": [
+    "openapi/_ae-authored/omophub-openapi-generated.yml"
+  ]
+}

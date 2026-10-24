@@ -1,0 +1,15 @@
+generated: '2026-10-23'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io)
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (omophub.com,
+  security/omophub-domain-security.yml) or its accepted GitHub org.'
+packages:
+- name: omophub
+  registry: pypi
+  url: https://pypi.org/project/omophub/
+  language: Python
+  official: true
+  version: 1.9.1
+  published: '2026-09-07'
+  evidence: metadata names omophub.com

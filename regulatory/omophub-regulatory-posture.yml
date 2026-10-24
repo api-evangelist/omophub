@@ -1,0 +1,32 @@
+generated: '2026-10-23'
+method: searched
+source: https://docs.omophub.com/guides/production/security-data-handling
+signals:
+  gdpr:
+    evidence:
+        - source: https://docs.omophub.com/guides/production/security-data-handling
+          http_status: 200
+          fetched: "true"
+          quote: "OMOPHub processes limited personal data (email, usage metrics) under GDPR. The Privacy Policy and Data Use Agreement cover data-processing details. Users can request data export or deletion via omophub.com/contact ."
+    note: Indicates GDPR compliance and provides data subject rights for export and deletion.
+  data_subject_request:
+    evidence:
+      - source: https://docs.omophub.com/guides/production/security-data-handling
+        http_status: 200
+        fetched: "true"
+        quote: "Users can request data export or deletion via omophub.com/contact ."
+    note: Provides mechanism for data subjects to request export or deletion of their personal data.
+  hipaa:
+    evidence:
+      - source: https://docs.omophub.com/guides/production/security-data-handling
+        http_status: 200
+        fetched: "true"
+        quote: "HIPAA: Because OMOPHub does not receive PHI, it typically does not require a Business Associate Agreement (BAA)."
+    note: States that HIPAA BAA is not required as no PHI is processed.
+  soc2:
+    evidence:
+      - source: https://docs.omophub.com/guides/production/security-data-handling
+        http_status: 200
+        fetched: "true"
+        quote: "SOC 2: Not currently certified. OMOPHub follows security best practices but has not undergone a formal SOC 2 audit."
+    note: Indicates SOC 2 audit status.

@@ -1,0 +1,33 @@
+generated: '2026-10-23'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.omophub.com/api-reference/rate-limit.md
+sources:
+- https://docs.omophub.com/api-reference/rate-limit.md
+name: OMOPHub rate limits
+limits:
+- name: Free - Sustained
+  limit_text: 120 per 60s
+  max: 120
+  window: 60 seconds
+- name: Free - Burst
+  limit_text: 20 per 10s
+  max: 20
+  window: 10 seconds
+- name: Pro
+  limit_text: No limits
+- name: Scale
+  limit_text: No limits
+- name: Business
+  limit_text: No limits
+- name: Private Cloud
+  limit_text: Deployment-specific
+headers:
+- ratelimit-limit
+- ratelimit-remaining
+- ratelimit-reset
+- ratelimit-window
+- ratelimit-policy
+- retry-after
+exhaustion_status: 429
+docs: https://docs.omophub.com/api-reference/rate-limit.md

@@ -1,0 +1,918 @@
+openapi: 3.1.0
+info:
+  title: OMOPHub API
+  version: '2026-10-23'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-23: 18 operation(s) read from 16 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; OMOPHub has published no machine-readable contract
+    that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 15
+    documentation: 3
+    pages-with-code: 16
+    pages-read: 16
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-23'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.omophub.com/api-reference/introduction
+  - https://docs.omophub.com/api-reference/fhir/resolve.md
+  - https://docs.omophub.com/api-reference/introduction.md
+  - https://docs.omophub.com/api-reference/fhir/resolve-batch.md
+  - https://docs.omophub.com/api-reference/search/bulk-search.md
+  - https://docs.omophub.com/api-reference/domains/get-domains.md
+  - https://docs.omophub.com/api-reference/search/basic-search.md
+  - https://docs.omophub.com/api-reference/concepts/get-concept.md
+  - https://docs.omophub.com/api-reference/search/search-facets.md
+  - https://docs.omophub.com/api-reference/fhir-terminology/diff.md
+  - https://docs.omophub.com/api-reference/mappings/map-concepts.md
+  - https://docs.omophub.com/api-reference/search/search-similar.md
+  - https://docs.omophub.com/api-reference/search/search-suggest.md
+  - https://docs.omophub.com/api-reference/fhir-terminology/batch.md
+  - https://docs.omophub.com/api-reference/search/advanced-search.md
+  - https://docs.omophub.com/api-reference/search/semantic-search.md
+servers:
+- url: https://api.omophub.com
+paths:
+  /fhir/r4:
+    post:
+      operationId: post_fhir_r4
+      tags:
+      - Fhir
+      summary: POST /fhir/r4
+      x-source: https://docs.omophub.com/api-reference/fhir-terminology/batch.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostFhirR4Request'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostFhirR4Response'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://fhir.omophub.com/fhir/r4/\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/fhir+json\"\
+          \  -d '{\n    \"resourceType\": \"Bundle\",\n    \"type\": \"batch\",\n    \"entry\": [\n      {\n        \"request\": {\n         \
+          \ \"method\": \"GET\",\n          \"url\": \"CodeSystem/$lookup?system=http://snomed.info/sct&code=44054006\"\n        }\n      },\n\
+          \      {\n        \"request\": {\n         "
+  /fhir/r4/CodeSystem:
+    get:
+      operationId: get_fhir_r4_CodeSystem
+      tags:
+      - Fhir
+      summary: GET /fhir/r4/CodeSystem
+      x-source: https://docs.omophub.com/api-reference/introduction
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFhirR4CodesystemResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl \"https://fhir.omophub.com/fhir/r4/CodeSystem/ \\$ lookup?system=http://snomed.info/sct&code=44054006\"  -H \"Authorization:\
+          \ Bearer YOUR_API_KEY\" \n ​ Response Format \n All REST API responses follow a consistent envelope: \n { \n \"success\" : true , \n\
+          \ \"data\" : { "
+  /fhir/r4/CodeSystem/:
+    get:
+      operationId: get_fhir_r4_CodeSystem
+      tags:
+      - Fhir
+      summary: FHIR $lookup
+      x-source: https://docs.omophub.com/api-reference/introduction
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /oauth2/token:
+    post:
+      operationId: post_oauth2_token
+      tags:
+      - Oauth2
+      summary: The FHIR Terminology Service additionally accepts RFC 6749 client_credentials via POST /oauth2/token
+      x-source: https://docs.omophub.com/api-reference/introduction
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/concepts/map:
+    post:
+      operationId: post_v1_concepts_map
+      tags:
+      - Concepts
+      summary: POST /v1/concepts/map
+      x-source: https://docs.omophub.com/api-reference/mappings/map-concepts.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ConceptsMapRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1ConceptsMapResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/concepts/map\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{\n    \"source_codes\": [\n      {\"vocabulary_id\": \"ICD10CM\", \"concept_code\": \"E11.9\"},\n      {\"vocabulary_id\": \"\
+          ICD10CM\", \"concept_code\": \"I21.9\"}\n    ],\n    \"target_vocabulary\": \"SNOMED\",\n    \"mapping_type\": \"direct\"\n  }'\n```"
+  /v1/concepts/{conceptid}:
+    get:
+      operationId: get_v1_concepts_conceptid
+      tags:
+      - Concepts
+      summary: GET /v1/concepts/{conceptId}
+      x-source: https://docs.omophub.com/api-reference/introduction
+      parameters:
+      - name: conceptid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1ConceptsConceptidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl \"https://api.omophub.com/v1/concepts/201826\"  -H \"Authorization: Bearer YOUR_API_KEY\" \n ​ Map Between Vocabularies "
+  /v1/concepts/{conceptid}/mappings:
+    get:
+      operationId: get_v1_concepts_conceptid_mappings
+      tags:
+      - Concepts
+      summary: GET /v1/concepts/{conceptId}/mappings
+      x-source: https://docs.omophub.com/api-reference/introduction
+      parameters:
+      - name: conceptid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: target_vocabularies
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1ConceptsConceptidMappingsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl \"https://api.omophub.com/v1/concepts/201826/mappings?target_vocabularies=ICD10CM\"  -H \"Authorization: Bearer YOUR_API_KEY\"\
+          \ \n ​ Resolve a FHIR Code to OMOP \n One call: FHIR system URI + code in, OMOP standard concept + CDM target table out. "
+  /v1/domains:
+    get:
+      operationId: get_v1_domains
+      tags:
+      - Domains
+      summary: GET /v1/domains
+      x-source: https://docs.omophub.com/api-reference/domains/get-domains.md
+      parameters:
+      - name: include_stats
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1DomainsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -X GET "https://api.omophub.com/v1/domains?include_stats=true"  -H "Authorization: Bearer YOUR_API_KEY"
+
+          ```'
+  /v1/fhir/resolve:
+    get:
+      operationId: get_v1_fhir_resolve
+      tags:
+      - Fhir
+      summary: Resolve a FHIR Code to OMOP
+      x-source: https://docs.omophub.com/api-reference/introduction.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_v1_fhir_resolve
+      tags:
+      - Fhir
+      summary: POST /v1/fhir/resolve
+      x-source: https://docs.omophub.com/api-reference/introduction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1FhirResolveRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1FhirResolveResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/fhir/resolve\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{ \n \"system\": \"http://snomed.info/sct\", \n \"code\": \"44054006\", \n \"resource_type\": \"Condition\" \n }' \n ​ FHIR $lookup\
+          \ \n Spec-conformant FHIR operation for clients that speak FHIR natively (HAPI, EHRbase, Firely). "
+  /v1/fhir/resolve/batch:
+    post:
+      operationId: post_v1_fhir_resolve_batch
+      tags:
+      - Fhir
+      summary: POST /v1/fhir/resolve/batch
+      x-source: https://docs.omophub.com/api-reference/fhir/resolve-batch.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1FhirResolveBatchRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1FhirResolveBatchResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/fhir/resolve/batch\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type:\
+          \ application/json\"  -d '{\n    \"codings\": [\n      { \"system\": \"http://snomed.info/sct\", \"code\": \"44054006\" },\n      {\
+          \ \"system\": \"http://loinc.org\", \"code\": \"2951-2\" },\n      { \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\", \"\
+          code\": \"197696\" },\n      { \"system\": \"http://hl"
+  /v1/search/advanced:
+    post:
+      operationId: post_v1_search_advanced
+      tags:
+      - Search
+      summary: POST /v1/search/advanced
+      x-source: https://docs.omophub.com/api-reference/search/advanced-search.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1SearchAdvancedRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SearchAdvancedResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/search/advanced\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{\n    \"query\": \"diabetes mellitus type 2\",\n    \"page_size\": 10\n  }'\n```"
+  /v1/search/bulk:
+    post:
+      operationId: post_v1_search_bulk
+      tags:
+      - Search
+      summary: POST /v1/search/bulk
+      x-source: https://docs.omophub.com/api-reference/search/bulk-search.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1SearchBulkRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SearchBulkResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/search/bulk\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{\n    \"defaults\": {\n      \"vocabulary_ids\": [\"SNOMED\"],\n      \"standard_concept\": \"S\"\n    },\n    \"searches\"\
+          : [\n      {\n        \"search_id\": \"s1\",\n        \"query\": \"diabetes\"\n      },\n      {\n        \"search_id\": \"s2\",\n \
+          \       \"query\": \"hypertension\"\n      },\n    "
+  /v1/search/concepts:
+    get:
+      operationId: get_v1_search_concepts
+      tags:
+      - Search
+      summary: GET /v1/search/concepts
+      x-source: https://docs.omophub.com/api-reference/introduction
+      parameters:
+      - name: page_size
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: vocabulary_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1SearchConceptsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl \"https://api.omophub.com/v1/search/concepts?query=diabetes&vocabulary_ids=SNOMED&page_size=5\"  -H \"Authorization: Bearer\
+          \ YOUR_API_KEY\" \n ​ Semantic Search \n Match by clinical meaning, not just keyword overlap. Uses neural embeddings. "
+  /v1/search/facets:
+    get:
+      operationId: get_v1_search_facets
+      tags:
+      - Search
+      summary: GET /v1/search/facets
+      x-source: https://docs.omophub.com/api-reference/search/search-facets.md
+      parameters:
+      - name: bucket_limit
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: vocabulary_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1SearchFacetsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -X GET "https://api.omophub.com/v1/search/facets?query=diabetes&vocabulary_ids=SNOMED,ICD10CM&bucket_limit=20"  -H "Authorization:
+          Bearer YOUR_API_KEY"
+
+          ```'
+  /v1/search/semantic:
+    get:
+      operationId: get_v1_search_semantic
+      tags:
+      - Search
+      summary: GET /v1/search/semantic
+      x-source: https://docs.omophub.com/api-reference/introduction
+      parameters:
+      - name: page_size
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1SearchSemanticResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl \"https://api.omophub.com/v1/search/semantic?query=chest+pain+that+gets+worse+when+breathing&page_size=5\"  -H \"Authorization:\
+          \ Bearer YOUR_API_KEY\" \n ​ Get Concept Details "
+  /v1/search/similar:
+    post:
+      operationId: post_v1_search_similar
+      tags:
+      - Search
+      summary: POST /v1/search/similar
+      x-source: https://docs.omophub.com/api-reference/search/search-similar.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1SearchSimilarRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SearchSimilarResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.omophub.com/v1/search/similar\"  -H \"Authorization: Bearer YOUR_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{\n    \"query\": \"type 2 diabetes mellitus\",\n    \"vocabulary_ids\": [\"SNOMED\", \"ICD10CM\"],\n    \"domain_ids\": [\"\
+          Condition\"],\n    \"algorithm\": \"hybrid\",\n    \"similarity_threshold\": 0.8,\n    \"page_size\": 10,\n    \"include_scores\": true,\n\
+          \    \"include_explanations\": tr"
+  /v1/search/suggest:
+    get:
+      operationId: get_v1_search_suggest
+      tags:
+      - Search
+      summary: GET /v1/search/suggest
+      x-source: https://docs.omophub.com/api-reference/search/search-suggest.md
+      parameters:
+      - name: page_size
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: vocabulary_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1SearchSuggestResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl "https://api.omophub.com/v1/search/suggest?query=diab&page_size=5&vocabulary_ids=SNOMED"  -H "Authorization: Bearer YOUR_API_KEY"
+
+          ```'
+components:
+  schemas:
+    PostFhirR4Request:
+      type: object
+      properties:
+        resourceType:
+          type: string
+        type:
+          type: string
+        entry:
+          type: array
+          items:
+            type: object
+            properties:
+              request:
+                type: object
+                properties:
+                  method:
+                    type: string
+                  url:
+                    type: string
+    PostFhirR4Response:
+      type: object
+      properties:
+        resource:
+          type: object
+          properties:
+            resourceType:
+              type: string
+            parameter:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  valueString:
+                    type: string
+        response:
+          type: object
+          properties:
+            status:
+              type: string
+    GetFhirR4CodesystemResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    PostV1ConceptsMapRequest:
+      type: object
+      properties:
+        source_codes:
+          type: array
+          items:
+            type: object
+            properties:
+              vocabulary_id:
+                type: string
+              concept_code:
+                type: string
+        target_vocabulary:
+          type: string
+        mapping_type:
+          type: string
+    PostV1ConceptsMapResponse:
+      type: object
+      properties:
+        Authorization:
+          type: string
+    GetV1ConceptsConceptidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    GetV1ConceptsConceptidMappingsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    GetV1DomainsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            domains:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain_id:
+                    type: string
+                  domain_name:
+                    type: string
+                  domain_concept_id:
+                    type: integer
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            vocab_release:
+              type: string
+    PostV1FhirResolveRequest:
+      type: object
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        resource_type:
+          type: string
+    PostV1FhirResolveResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    PostV1FhirResolveBatchRequest:
+      type: object
+      properties:
+        codings:
+          type: array
+          items:
+            type: object
+            properties:
+              system:
+                type: string
+              code:
+                type: string
+    PostV1FhirResolveBatchResponse:
+      type: object
+      properties:
+        input:
+          type: object
+          properties:
+            system:
+              type: string
+            code:
+              type: string
+        resolution:
+          type: object
+          properties:
+            vocabulary_id:
+              type: string
+            source_concept:
+              type: object
+              properties:
+                concept_id:
+                  type: integer
+                concept_name:
+                  type: string
+                concept_code:
+                  type: string
+                vocabulary_id:
+                  type: string
+                domain_id:
+                  type: string
+                concept_class_id:
+                  type: string
+                standard_concept:
+                  type: string
+            standard_concept:
+              type: object
+              properties:
+                concept_id:
+                  type: integer
+                concept_name:
+                  type: string
+                concept_code:
+                  type: string
+                vocabulary_id:
+                  type: string
+                domain_id:
+                  type: string
+                concept_class_id:
+                  type: string
+                standard_concept:
+                  type: string
+            mapping_type:
+              type: string
+            target_table:
+              type: string
+            domain_resource_alignment:
+              type: string
+    PostV1SearchAdvancedRequest:
+      type: object
+      properties:
+        query:
+          type: string
+        page_size:
+          type: integer
+    PostV1SearchAdvancedResponse:
+      type: object
+      properties:
+        query:
+          type: string
+        pageSize:
+          type: integer
+    PostV1SearchBulkRequest:
+      type: object
+      properties:
+        defaults:
+          type: object
+          properties:
+            vocabulary_ids:
+              type: array
+              items:
+                type: string
+            standard_concept:
+              type: string
+        searches:
+          type: array
+          items:
+            type: object
+            properties:
+              search_id:
+                type: string
+              query:
+                type: string
+    PostV1SearchBulkResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              search_id:
+                type: string
+              query:
+                type: string
+              status:
+                type: string
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    concept_id:
+                      type: integer
+                    concept_name:
+                      type: string
+                    concept_code:
+                      type: string
+                    vocabulary_id:
+                      type: string
+                    vocabulary_name:
+                      type: string
+                    domain_id:
+                      type: string
+                    concept_class_id:
+                      type: string
+                    standard_concept:
+                      type: string
+                    valid_start_date:
+                      type: string
+                      format: date
+                    valid_end_date:
+                      type: string
+                      format: date
+                    invalid_reason:
+                      type:
+                      - string
+                      - 'null'
+                    search_score:
+                      type: number
+                    match_type:
+                      type: string
+              duration:
+                type: integer
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    GetV1SearchConceptsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    GetV1SearchFacetsResponse:
+      type: object
+      properties:
+        query:
+          type: string
+        vocabulary_ids:
+          type: string
+        bucket_limit:
+          type: integer
+    GetV1SearchSemanticResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            vocab_release:
+              type: string
+    PostV1SearchSimilarRequest:
+      type: object
+      properties:
+        query:
+          type: string
+        vocabulary_ids:
+          type: array
+          items:
+            type: string
+        domain_ids:
+          type: array
+          items:
+            type: string
+        algorithm:
+          type: string
+        similarity_threshold:
+          type: number
+        page_size:
+          type: integer
+        include_scores:
+          type: boolean
+        include_explanations:
+          type: boolean
+        standard_concept:
+          type: string
+    PostV1SearchSimilarResponse:
+      type: object
+      properties:
+        Authorization:
+          type: string
+    GetV1SearchSuggestResponse:
+      type: object
+      properties:
+        Authorization:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: Concepts
+- name: Domains
+- name: Fhir
+- name: Oauth2
+- name: Search

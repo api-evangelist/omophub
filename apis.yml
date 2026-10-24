@@ -1,25 +1,139 @@
 aid: omophub
+
 name: OMOPHub
-description: 'OMOPHub is a company surfaced via the API Evangelist harvest backlog (source: new-submission)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://omophub.com/og-cover.png
+
+description: OMOPHub provides a platform that enables the integration, transformation, and analysis of healthcare data using the OMOP Common Data
+  Model. It offers APIs for data ingestion, cohort definition, and analytics, supporting researchers and clinicians in generating real‑world evidence.
+  The service includes comprehensive documentation, authentication mechanisms, and compliance with healthcare data standards, facilitating secure
+  and scalable access to standardized health datasets.
+
 url: https://raw.githubusercontent.com/api-evangelist/omophub/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:new-submission
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-23 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-23'
+
 modified: '2026-10-23'
+
 tags:
 - Company
-apis: []
+- Healthcare
+- Data Integration
+- OMOP
+- APIs
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: TermsOfService
+  url: https://omophub.com/terms
+- type: PrivacyPolicy
+  url: https://omophub.com/privacy-policy
+- type: Blog
+  url: https://omophub.com/blog
+- type: RateLimits
+  url: rate-limits/omophub-rate-limits.yml
+- type: Plans
+  url: plans/omophub-plans-pricing.yml
+- type: Spectral
+  url: rules/omophub-rules.yml
+- type: JSONLD
+  url: json-ld/omophub-context.jsonld
+- type: Vocabulary
+  url: vocabulary/omophub-vocabulary.yml
+- type: DataModel
+  url: data-model/omophub-data-model.yml
+- type: Conventions
+  url: conventions/omophub-conventions.yml
+- type: Authentication
+  url: authentication/omophub-authentication.yml
+- type: Conformance
+  url: conformance/omophub-conformance.yml
+- type: LLMsTxt
+  url: llms/omophub-llms.txt
+- type: AgentCard
+  url: a2a/omophub-a2a.yml
+- type: WellKnown
+  url: well-known/omophub-well-known.yml
+- type: Hosts
+  url: hosts/omophub-hosts.yml
+- type: Vendors
+  url: vendors/omophub-vendors.yml
+- type: SDKs
+  url: packages/omophub-packages.yml
+- type: Packages
+  url: packages/omophub-packages.yml
+- type: Pricing
+  url: https://omophub.com/pricing
+- type: ChangeLog
+  url: https://omophub.com/changelog
+- type: DomainSecurity
+  url: security/omophub-domain-security.yml
 - type: Website
   url: https://omophub.com
+- type: Documentation
+  url: https://docs.omophub.com
+- type: APIReference
+  url: https://docs.omophub.com/api-reference/introduction
+- type: GettingStarted
+  url: https://docs.omophub.com/quickstart
+- type: Support
+  url: https://dashboard.omophub.com/login
+- type: GitHubOrganization
+  url: https://github.com/omophub
+
+apis:
+- aid: omophub:omophub-api
+  name: OMOPHub API
+  description: 'OMOPHub API as documented publicly: 18 operations. Contract generated from the documentation by API Evangelist (2026-10-23); not
+    the provider''s own document.'
+  humanURL: https://docs.omophub.com/api-reference/introduction
+  baseURL: https://api.omophub.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/omophub-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/omophub-post-v1-search-bulk-response-schema.json
+  - type: JSONSchema
+    url: json-schema/omophub-post-v1-fhir-resolve-batch-response-schema.json
+  - type: JSONSchema
+    url: json-schema/omophub-post-v1-search-similar-request-schema.json
+  - type: JSONSchema
+    url: json-schema/omophub-get-v1-domains-response-schema.json
+  - type: JSONSchema
+    url: json-schema/omophub-post-fhir-r4-response-schema.json
+  - type: JSONSchema
+    url: json-schema/omophub-post-v1-search-bulk-request-schema.json
+
 x-submission-notes: OpenAPI 3.0, 58 ops; docs llms.txt; claims GitHub + remote MCP; healthcare vocabularies
+
 x-submitted-by: hello@omophub.com (apis.io/add, 2026-10-23)
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Documentation site renders content via JavaScript, preventing retrieval of a machine‑readable OpenAPI spec.
+  evidence:
+  - url: https://docs.omophub.com/api-reference/introduction
+    status: 200
+  checked: '2026-10-23'
+x-enrichment:
+  date: '2026-10-23'
+  status: enriched
+  artifacts_added: 35
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

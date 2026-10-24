@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/omophub/main/json-schema/omophub-post-v1-search-bulk-request-schema.json",
+  "title": "PostV1SearchBulkRequest",
+  "x-generated": "2026-10-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/omophub-openapi-generated.yml#/components/schemas/PostV1SearchBulkRequest",
+  "type": "object",
+  "properties": {
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "vocabulary_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "standard_concept": {
+          "type": "string"
+        }
+      }
+    },
+    "searches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "search_id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/omophub/main/json-schema/omophub-post-v1-fhir-resolve-batch-response-schema.json",
+  "title": "PostV1FhirResolveBatchResponse",
+  "x-generated": "2026-10-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/omophub-openapi-generated.yml#/components/schemas/PostV1FhirResolveBatchResponse",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "properties": {
+        "vocabulary_id": {
+          "type": "string"
+        },
+        "source_concept": {
+          "type": "object",
+          "properties": {
+            "concept_id": {
+              "type": "integer"
+            },
+            "concept_name": {
+              "type": "string"
+            },
+            "concept_code": {
+              "type": "string"
+            },
+            "vocabulary_id": {
+              "type": "string"
+            },
+            "domain_id": {
+              "type": "string"
+            },
+            "concept_class_id": {
+              "type": "string"
+            },
+            "standard_concept": {
+              "type": "string"
+            }
+          }
+        },
+        "standard_concept": {
+          "type": "object",
+          "properties": {
+            "concept_id": {
+              "type": "integer"
+            },
+            "concept_name": {
+              "type": "string"
+            },
+            "concept_code": {
+              "type": "string"
+            },
+            "vocabulary_id": {
+              "type": "string"
+            },
+            "domain_id": {
+              "type": "string"
+            },
+            "concept_class_id": {
+              "type": "string"
+            },
+            "standard_concept": {
+              "type": "string"
+            }
+          }
+        },
+        "mapping_type": {
+          "type": "string"
+        },
+        "target_table": {
+          "type": "string"
+        },
+        "domain_resource_alignment": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

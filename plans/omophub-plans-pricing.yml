@@ -1,0 +1,27 @@
+generated: '2026-10-23'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://omophub.com/pricing
+sources:
+- https://omophub.com/pricing
+name: OMOPHub pricing
+audience: developer-api
+pricing_basis: per-call
+plans:
+- name: Free
+  price_text: $0 / mo
+  price: 0
+  description: 3,000 calls / mo
+- name: Pro
+  price_text: $39 / mo
+  price: 39
+  description: 50,000 calls / mo
+- name: Scale
+  price_text: $79 / mo
+  price: 79
+  description: 125,000 calls / mo
+- name: Business
+  price_text: $149 / mo
+  price: 149
+  description: 250,000 calls / mo
+docs: https://omophub.com/pricing

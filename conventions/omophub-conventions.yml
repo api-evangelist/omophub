@@ -1,0 +1,27 @@
+generated: '2026-10-23'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.omophub.com/api-reference/fhir-terminology/expand.md
+sources:
+- https://docs.omophub.com/api-reference/fhir-terminology/expand.md
+- https://docs.omophub.com/quickstart.md
+- https://docs.omophub.com/ai/onboarding.md
+- https://docs.omophub.com/sdks/python/overview.md
+idempotency:
+  coverage: none
+  evidence: The documentation does not describe any idempotency key or mechanism for write operations.
+pagination:
+  style: offset-based
+  params:
+  - 'offset (integer, default: 0)'
+  - 'count (integer, default: 100, max: 1000)'
+  response_fields:
+  - expansion.total
+  - expansion.offset
+  - expansion.contains
+  evidence: Use `offset` and `count` query parameters to page through large expansions; the response includes `total` and `offset`.
+versioning: 'Supported via the `version` query parameter (default: r4) and the `X-Vocab-Release` header which overrides the `vocab_release` query
+  parameter.'
+authentication: 'Bearer token passed in the `Authorization: Bearer <API_KEY>` header.'
+rate_limit_signaling: Rate‑limit responses include a `Retry-After` header; no dedicated rate‑limit headers are documented.
+docs: https://docs.omophub.com/api-reference/fhir-terminology/expand.md

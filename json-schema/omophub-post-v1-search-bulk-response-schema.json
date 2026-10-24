@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/omophub/main/json-schema/omophub-post-v1-search-bulk-response-schema.json",
+  "title": "PostV1SearchBulkResponse",
+  "x-generated": "2026-10-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/omophub-openapi-generated.yml#/components/schemas/PostV1SearchBulkResponse",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "search_id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "concept_id": {
+                  "type": "integer"
+                },
+                "concept_name": {
+                  "type": "string"
+                },
+                "concept_code": {
+                  "type": "string"
+                },
+                "vocabulary_id": {
+                  "type": "string"
+                },
+                "vocabulary_name": {
+                  "type": "string"
+                },
+                "domain_id": {
+                  "type": "string"
+                },
+                "concept_class_id": {
+                  "type": "string"
+                },
+                "standard_concept": {
+                  "type": "string"
+                },
+                "valid_start_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "valid_end_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "invalid_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "search_score": {
+                  "type": "number"
+                },
+                "match_type": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "duration": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "vocab_release": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
